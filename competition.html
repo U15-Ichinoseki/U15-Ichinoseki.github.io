@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>U15 プログラミングコンテスト 一関大会</title>
+  <meta name="description" content="第4回 U-15プログラミングコンテスト 一関大会">
+  <link rel="icon" href="/assets/favicon-DMytmkcQ.ico" sizes="any">
+  <link rel="icon" href="/assets/icon-CVvLs4vR.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon-DZWcvbm4.png">
+  <link rel="stylesheet" crossorigin href="/assets/output-DJ16gG0R.css">
+</head>
+
+<body>
+  <header class="fixed top-0 left-0 w-full z-20 bg-transparent text-gray-800 flex items-center">
+    <nav class="flex w-full place-content-between items-center">
+      <div id="logo" class="px-6 py-4 text-xl font-bold">
+        <a href="./index.html#hero">U-15 プロコン 一関大会</a>
+      </div>
+      <div class="flex items-end pr-1 sm:pr-6">
+        <div id="hamburger" class="hamburger sm:hidden">
+          <div class="bar"></div>
+        </div>
+        <ul class="hidden sm:flex place-content-around items-end text-xl font-bold gap-8 relative">
+          <li class="relative">
+            <a href="index.html" class="hover:text-gray-600">大会概要</a>
+          </li>
+          <li>
+            <button id="menu-toggle"
+              class="hover:text-gray-600 transition-colors duration-300 ease-in-out flex items-center cursor-pointer">
+              競技部門
+              <svg id="dropdown-icon" class="ml-1 w-5 h-5 transform transition-transform duration-300" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <ul id="dropdown-menu"
+              class="absolute top-10 -right-4 w-40 mt-2 p-2 hidden bg-white text-gray-800 text-lg xl:text-xl xl:w-44 rounded-lg border-2 border-white">
+              <li><a href="#CHaser" class="dropdown-link block px-4 py-2 hover:bg-gray-100">CHaserとは</a>
+              </li>
+              <li><a href="#rule" class="dropdown-link block px-4 py-2 hover:bg-gray-100">競技ルール</a>
+              </li>
+              <li><a href="#platform" class="dropdown-link block px-4 py-2 hover:bg-gray-100">開発プラットフォーム</a>
+              </li>
+              <li><a href="#contact" class="dropdown-link block px-4 py-2 hover:bg-gray-100">お問い合わせ
+                </a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu main-theme px-20">
+      <ul class="flex flex-col gap-6 w-full text-white text-center text-2xl">
+        <li class="text-3xl font-bold text-center mb-8">
+          <h2>競技部門</h2>
+        </li>
+        <li><a href="#CHaser" class="mobile-link">CHaserとは</a></li>
+        <li><a href="#rule" class="mobile-link">競技ルール</a></li>
+        <li><a href="#platform" class="mobile-link">開発プラットフォーム</a></li>
+        <li><a href="#contact" class="mobile-link">お問い合わせ</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="bg-white">
+    <!-- CHaser Section -->
+    <section id="CHaser" class="py-20 px-8">
+      <div class="container">
+        <h2 class="text-4xl font-bold text-center mb-12">CHaserとは</h2>
+        <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
+          <div class="bg-white rounded-xl p-8 hover-card flex flex-col gap-6">
+            <h3 class="text-2xl font-bold text-blue-700 mb-2">CHaser概要</h3>
+            <p>CHaserは、対戦型ゲームプラットフォーム上で動作する自律型プログラムによる競技です。プレイヤーはPythonなどでプログラムを作成し、アイテムを集めたり、相手をブロックで囲んだりして勝利を目指します。
+            </p>
+          </div>
+          <div class="bg-white rounded-xl p-8 hover-card flex flex-col gap-6">
+            <h3 class="text-2xl font-bold text-blue-700 mb-2">プログラミングの基本</h3>
+            <p>CHaserでは、以下のような命令を使ってプレイヤーを操作します。</p>
+            <div class="grid grid-cols-2 gap-4 mt-4">
+              <div class="bg-blue-50 p-4 rounded-lg border">
+                <h4 class="font-semibold text-blue-600">移動</h4>
+                <code class="block mt-2 text-sm text-gray-700">player.walk(Up)</code>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-lg border">
+                <h4 class="font-semibold text-blue-600">ブロック設置</h4>
+                <code class="block mt-2 text-sm text-gray-700">player.put(Down)</code>
+              </div>
+            </div>
+            <h4 class="font-semibold text-blue-600 mt-6">周辺情報の活用</h4>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li><code>map_info[Up] == Item</code>：上のマスにアイテムがある</li>
+              <li><code>map_info[Right] == Enemy</code>：右のマスに相手がいる</li>
+              <li><code>look_info = player.look(Right)</code>：右方向の近隣探査</li>
+            </ul>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-8 hover-card flex flex-col gap-6">
+          <h3 class="text-2xl font-bold text-blue-700 mb-2">応用戦略</h3>
+          <ul class="list-disc pl-6 mt-2 space-y-1">
+            <li>遠方探査でアイテムの位置を予測</li>
+            <li>障害物を回避しながら移動</li>
+            <li>ランダム移動で自滅を防止</li>
+            <li>相手の位置を推定してブロック設置</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 競技ルール Section -->
+    <section id="rule" class="py-20 px-8">
+      <div class="container">
+        <h2 class="text-4xl font-bold text-center mb-12">競技ルール</h2>
+        <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
+          <div class="bg-white rounded-xl p-8 hover-card flex flex-col gap-6">
+            <h3 class="text-xl font-semibold text-blue-700 border-b pb-2">🏆 勝利条件</h3>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li class="marker:text-base ">規定ターン終了時にアイテム数が多い</li>
+              <li>相手のマスにブロックを置く（アタック）</li>
+              <li>相手を4方向からブロックで囲む（閉じ込め）</li>
+              <li>相手がブロックのあるマスに移動（衝突）</li>
+              <li>通信エラーなどで競技中断</li>
+            </ul>
+            <h3 class="text-xl font-semibold text-blue-700 border-b pb-2 mt-8">🎮 試合形式</h3>
+            <p class="mt-2">同じマップで先攻・後攻を入れ替えて2回対戦。勝利数が多い方が勝者。1回目は選手番号の小さい方が先攻。</p>
+            <h3 class="text-xl font-semibold text-blue-700 border-b pb-2 mt-8">📊 対戦ポイント</h3>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>アイテム数 × 10点（勝者・敗者とも）</li>
+              <li>早期勝利：残りアイテム数 × 7点（勝者）</li>
+              <li>衝突・通信中断：敗者はアイテム数 × 3点 減点</li>
+            </ul>
+            <h3 class="text-xl font-semibold text-blue-700 border-b pb-2">📐 対戦方法</h3>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>トーナメント方式（組み合わせは実行委員会）</li>
+              <li>規定数未満：リーグ方式（勝ち点制）</li>
+              <li>規定数超過：予選あり（方法は委員会決定）</li>
+            </ul>
+            <h3 class="text-xl font-semibold text-blue-700 border-b pb-2 mt-8">🗺️ マップとターン</h3>
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+              <li>マップサイズ：横15 × 縦17</li>
+              <li>初期位置：中央より左が先攻、右が後攻</li>
+              <li>ターン数：100〜240ターン</li>
+            </ul>
+            <h3 class="text-xl font-semibold text-blue-700 border-b pb-2 mt-8">💻 プログラム提出</h3>
+            <p class="mt-2">指定期日までに提出。対戦ごとの変更不可。</p>
+            <h3 class="text-xl font-semibold text-blue-700 border-b pb-2 mt-8">📌 その他</h3>
+            <p class="mt-2">不測の事態は実行委員会が判断。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 開発プラットフォーム Section -->
+    <section id="platform" class="py-20 px-8">
+      <div class="container">
+        <h2 class="text-4xl font-bold text-center mb-12">開発プラットフォーム</h2>
+        <div class="flex flex-col gap-8 md:flex-row md:gap-14 justify-center">
+          <div class="flex flex-col gap-2">
+            <a href="https://chaser.u15-ichinoseki.org/" target="_blank"
+              class="link-button text-center px-5 md:px-8">ブロック版 (Scratch風)</a>
+            <p class="text-gray-600 px-1 md:px-4">初心者向け。ドラッグ&ドロップでAIを構築できます。</p>
+          </div>
+          <div class="flex flex-col gap-2">
+            <a href="https://pychaser.u15-ichinoseki.org" target="_blank"
+              class="link-button text-center px-5 md:px-8">Python版 (テスト運用中)</a>
+            <p class="text-gray-600 px-1 md:px-4">プログラミング経験者向け。コードで戦略を記述します。</p>
+          </div>
+        </div>
+        <div class="flex flex-col pt-8 gap-1.5 items-center">
+          <div class="flex flex-row items-center">
+            <p class="font-semibold">資料ダウンロードは</p>
+            <a href="https://drive.google.com/drive/folders/1TtXUKbhdLQzNwqKI0IFa-8IjYKVU07tx?usp=sharing"
+              target="_blank" class="group flex ml-0.5 gap-0.5">
+              <div class="pt-[1.5px]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12.71 12.71 19 6.41 19 11 21 11 21 3 13 3 13 5 17.59 5 11.29 11.29 12.71 12.71z"></path>
+                  <path d="m11,5v-2h-6c-1.1,0-2,.9-2,2v14c0,1.1.9,2,2,2h14c1.1,0,2-.9,2-2v-6h-2v6H5V5h6Z"></path>
+                </svg>
+              </div>
+              <p class="font-semibold relative">こちらから
+                <span
+                  class="absolute bottom-0 left-0 h-0.5 bg-blue-500 w-0 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+              </p>
+            </a>
+          </div>
+          <p class="text-gray-500 pl-[1em] -indent-[1em]">※資料は随時更新される可能性があります。最新版をご確認ください。</p>
+        </div>
+      </div>
+    </section>
+    <!-- CHaser Section End -->
+  </main>
+
+    <!-- Contact Section -->
+    <footer id="contact" class="bg-gray-800 pt-8 px-8 pb-4">
+        <div class="container max-w-2xl text-center flex flex-col items-center">
+            <h2 class="text-2xl font-bold text-white mb-6">お問い合わせ</h2>
+            <p class="text-gray-300 font-semibold text-wrap break-keep mb-5">
+                U-15&nbsp;<wbr>プログラミングコンテスト&nbsp;<wbr>一関大会&nbsp;実行委員会事務局&nbsp;<wbr>(一関工業高等専門学校内)
+            </p>
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-center sm:gap-8">
+                <a href="tel:0191-24-4810" class="contact">
+                    <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                        </path>
+                    </svg>
+                    <div class="text-left">
+                        <h3 class="text-xl font-semibold text-white">電話</h3>
+                        <p class="text-gray-300">0191-24-4810</p>
+                    </div>
+                </a>
+                <a href="mailto:s-kikaku@ichinoseki.ac.jp" class="contact">
+                    <svg class="w-9 h-9 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 8a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8z">
+                        </path>
+                    </svg>
+                    <div class="text-left">
+                        <h3 class="text-xl font-semibold text-white">Eメール</h3>
+                        <p class="text-gray-300">s-kikaku@ichinoseki.ac.jp</p>
+                    </div>
+                </a>
+            </div>
+            <!-- SNSリンク区切り -->
+            <div class="w-full h-0.5 my-6 bg-gray-700"></div>
+            <div class="flex flex-row items-center justify-center gap-8 mb-2">
+                <a href="https://x.com/u15procon_1seki" target="_blank" rel="noopener"
+                    class="contact hover:bg-gray-100 flex items-center gap-2">
+                    <svg class="w-9 h-9 text-blue-400" viewBox="0 0 120 120" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect width="120" height="120" rx="24" fill="currentColor" />
+                        <path
+                            d="M75.7 34H91L67.7 61.2L95 86H78.7L62.2 70.1L44.7 86H29L54.1 57.7L27 34H44.1L59.2 48.7L75.7 34ZM72.7 81H77.1L52.7 38.7H48.3L72.7 81Z"
+                            fill="white" />
+                    </svg>
+                    <div class="text-left">
+                        <h3 class="text-xl font-semibold text-blue-600">X</h3>
+                        <p class="text-gray-300">@u15procon_1seki</p>
+                    </div>
+                </a>
+                <a href="https://www.facebook.com/u15procon1seki" target="_blank" rel="noopener"
+                    class="contact hover:bg-gray-100 flex items-center gap-2">
+                    <svg class="w-9 h-9 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.325-.592 1.325-1.326V1.326C24 .592 23.405 0 22.675 0" />
+                    </svg>
+                    <div class="text-left">
+                        <h3 class="text-xl font-semibold text-blue-600">Facebook</h3>
+                        <p class="text-gray-300">u15procon1seki</p>
+                    </div>
+                </a>
+            </div>
+            <p class="text-sm text-gray-300 font-normal mt-6 mb-3 text-wrap break-keep">Copyright &copy;
+                U-15&nbsp;プログラミング<wbr>コンテスト&nbsp;<wrb>一関大会&nbsp;<wbr>実行委員会
+            </p>
+        </div>
+    </footer>
+    <!-- Contact Section End -->
+  <script src="./src/index.js"></script>
+</body>
+
+</html>
